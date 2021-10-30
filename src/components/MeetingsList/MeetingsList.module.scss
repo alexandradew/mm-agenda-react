@@ -1,0 +1,70 @@
+.MeetingsContainer {
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  width: 1120px;
+  border-radius: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 10px;
+
+  div {
+    width: 100%;
+    border-radius: 5px;
+    height: auto;
+    background-color: #fff;
+    padding: 20px 30px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    section {
+      display: flex;
+      flex-direction: column;
+
+      h1 {
+        margin-bottom: 5px;
+      }
+    }
+
+    .actions {
+      gap: 10px;
+      align-items: center;
+
+      svg {
+        margin: 2px;
+        cursor: pointer;
+
+        &:hover {
+          color: #636bfa;
+        }
+      }
+    }
+
+    h1 {
+      color: #636bfa;
+    }
+  }
+}
+
+@media screen and(max-width:1200px) {
+  .MeetingsContainer {
+    width: 800px;
+  }
+}
+
+@media screen and(max-width:800px) {
+  .MeetingsContainer {
+    width: 90%;
+
+    div {
+      flex-direction: column;
+
+      .actions {
+        margin-top: 15px;
+      }
+    }
+  }
+}
