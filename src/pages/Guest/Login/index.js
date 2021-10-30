@@ -1,16 +1,20 @@
-import React, {useState, useContext, useEffect} from 'react'
+import React, {useContext, useEffect} from 'react'
 import styles from './Login.module.scss'
 import { useHistory } from 'react-router-dom'
+import { useForm } from 'react-hook-form';
 
 import { AuthContext } from '../../../contexts/AuthContext';
 
 function Login() {
-  const [login, setLogin] = useState({
-    email: '',
-    password: ''
-  })
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+    trigger,
+  } = useForm();
 
-  const { isLoggedIn, signIn, user } = useContext(AuthContext);
+  const { signIn, user } = useContext(AuthContext);
 
   const history = useHistory()
   useEffect(() => {
@@ -19,28 +23,42 @@ function Login() {
     }
   })
 
-  function handleChange(e){
-    setLogin({...login, [e.target.name]: e.target.value})
-  }
-
-  async function submitLogin(e){
-    e.preventDefault();
-    signIn(login);
+  async function submitLogin(data){
+    signIn({
+      email: data.email,
+      password: data.password,
+    })
+    reset();       
   }
 
   return (
     <div className={styles.loginWrapper}>
       <div className={styles.loginContainer}>
-        <form onSubmit={submitLogin}>
+        <form onSubmit={handleSubmit(submitLogin)}>
         <h2>Faça login para continuar</h2>
+
           <input type="text" name="email" placeholder="E-mail" 
-          onChange={(e) => handleChange(e)}
-          value={login.email}          
+          {...register("email", { required: "Preencha o email." })}
+          onKeyUp={() => {
+            trigger("email");
+          }}
           />
+
+          {errors.email && (
+            <small className={styles.textDanger}>{errors.email.message}</small>
+          )}
+
           <input type="password" name="password" placeholder="Senha" 
-          onChange={(e) => handleChange(e)}
-          value={login.password}
+          {...register("password", { required: "Preencha a senha." })}
+          onKeyUp={() => {
+            trigger("password");
+          }}
           />
+
+          {errors.password && (
+            <small className={styles.textDanger}>{errors.password.message}</small>
+          )}
+
           <input type="submit" value="Login" />
         </form>
       </div>

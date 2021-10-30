@@ -19,8 +19,6 @@ export function AuthContextProvider({ children }){
     const lsToken = localStorage.getItem('MMAgendaToken')
     if(!lsToken){
       history.push('/login')
-    }else{
-      history.push('/contacts')
     }
   }
 
