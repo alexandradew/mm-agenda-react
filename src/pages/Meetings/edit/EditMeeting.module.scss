@@ -82,14 +82,9 @@
   }
 }
 
-@media screen and(max-width: 600px) {
+@media screen and(max-width: 650px) {
   .editMeetingContainer {
     width: 90%;
-  }
-}
-
-@media screen and(max-width: 500px) {
-  .editMeetingContainer {
     margin-top: -350px;
   }
 }
