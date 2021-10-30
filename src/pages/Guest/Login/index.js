@@ -28,7 +28,7 @@ function Login() {
       email: data.email,
       password: data.password,
     })
-    reset();       
+    //reset();       
   }
 
   return (

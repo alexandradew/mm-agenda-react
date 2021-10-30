@@ -13,6 +13,9 @@ import { IoChevronBackOutline } from 'react-icons/io5'
 
 import { ContactContext } from '../../../contexts/ContactContext'
 
+import { toast } from 'react-toastify'
+
+
 
 export default function EditContact() {
   const { getContacts } = useContext(ContactContext);
@@ -47,14 +50,20 @@ export default function EditContact() {
         email: data.email,
         cellphone: data.cellphone,
       })
-
-      console.log(response.status)
       if(response.status === 200){
         getContacts();
         history.push('/contacts');   
+        toast.success("Contato editado.");
       }
     }catch(err){
-      console.log(err)
+      if(err.response.data.error.e.includes('contacts.email')){
+        toast.error('Email já registrado em outro contato');
+      }
+      if(err.response.data.error.e.includes('contacts.cellphone')){
+        toast.error('Telefone já registrado em outro contato');
+      }else{
+        toast.error('Não foi possível completar sua requisição');
+      } 
     }
   }
 

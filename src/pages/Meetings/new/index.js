@@ -11,8 +11,9 @@ import { AuthContext } from '../../../contexts/AuthContext'
 import { useContext } from 'react'
 import { useHistory } from 'react-router-dom'
 
+import { toast } from 'react-toastify';
+
 export default function NewMeeting() {
-  const {token} = useContext(AuthContext)
   const {
     register,
     handleSubmit,
@@ -32,6 +33,7 @@ export default function NewMeeting() {
     })
     reset();   
     history.push('/meetings');
+    toast.success('Reunião cadastrada.');
   } 
 
   return (

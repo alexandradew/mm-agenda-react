@@ -12,6 +12,8 @@ import { IoChevronBackOutline } from 'react-icons/io5'
 
 import { ContactContext } from '../../../contexts/ContactContext'
 
+import { toast } from 'react-toastify'
+
 export default function NewContact() {
   const {  getContacts } = useContext(ContactContext);
   const {
@@ -24,16 +26,30 @@ export default function NewContact() {
 
  
   const history = useHistory()
+
   async function submitData(data){
-    await api.post('/contacts', {
-      name: data.name,
-      lastname: data.lastname,
-      email: data.email,
-      cellphone: data.cellphone,
-    })
-    //getContacts();
-    reset();       
-    history.push('/contacts');
+    try{
+      let response = await api.post('/contacts/' , {
+        name: data.name,
+        lastname: data.lastname,
+        email: data.email,
+        cellphone: data.cellphone,
+      })
+      if(response.status === 200){
+        getContacts();
+        history.push('/contacts');   
+        toast.success("Contato cadastrado.");
+      }
+    }catch(err){
+      if(err.response.data.error.e.includes('contacts.email')){
+        toast.error('Email já registrado em outro contato');
+      }
+      if(err.response.data.error.e.includes('contacts.cellphone')){
+        toast.error('Telefone já registrado em outro contato');
+      }else{
+        toast.error('Não foi possível completar sua requisição');
+      }      
+    }
   }
 
   return (

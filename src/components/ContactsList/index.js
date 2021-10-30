@@ -9,6 +9,8 @@ import{ BsArrowUpShort, BsArrowDownShort } from 'react-icons/bs'
 import { useHistory } from 'react-router-dom'
 import { ContactContext } from '../../contexts/ContactContext';
 
+import { toast } from 'react-toastify';
+
 function ContactsList() {
 	const { contacts, handleContacts, getContacts} = useContext(ContactContext)
 
@@ -76,6 +78,7 @@ function ContactsList() {
     if(response.status === 200){
       await api.get('/contacts')
       getContacts();
+      toast.success("Contato deletado.");
     }
   }
  

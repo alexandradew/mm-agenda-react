@@ -10,7 +10,7 @@ import { AiTwotoneDelete } from 'react-icons/ai'
 import { MeetingContext } from '../../contexts/MeetingContext';
 
 function MeetingsList() {
-  const { meetings, handleMeetings, getMeetings } = useContext(MeetingContext);
+  const { meetings, getMeetings } = useContext(MeetingContext);
 
   useEffect(() => {
     getMeetings();

@@ -12,6 +12,9 @@ import { AuthContextProvider } from "./contexts/AuthContext";
 import { ContactContextProvider } from "./contexts/ContactContext";
 import { MeetingContextProvider } from "./contexts/MeetingContext";
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -25,10 +28,13 @@ function Home(){
 function App() {
   return (
     <Router>
+      <ToastContainer autoClose={3000} />
       <AuthContextProvider>
       <ContactContextProvider>
         <MeetingContextProvider>
           <Switch>
+
+
 
             <Route exact path="/contacts" component={Contacts}/>
             <Route exact path="/contacts/new/" component={NewContact}/>
@@ -39,6 +45,7 @@ function App() {
             <Route exact path="/meetings/edit/:id" component={EditMeeting}/>
 
             <Route exact path="/login" component={Login}/>
+
           </Switch>
         </MeetingContextProvider>
       </ContactContextProvider>

@@ -10,6 +10,8 @@ import api from '../../../services/api'
 import InputMask from 'react-input-mask';
 import { useForm } from 'react-hook-form';
 
+import { toast } from 'react-toastify'
+
 import { IoChevronBackOutline } from 'react-icons/io5'
 import { MeetingContext } from '../../../contexts/MeetingContext'  
 
@@ -48,8 +50,8 @@ export default function EditMeeting() {
         date: data.date,
       })
       if(response.status === 200){
-        //getMeetings();
         history.push('/meetings');   
+        toast.success('Reunião editada.');
       }
     }catch(err){
       console.log(err)
