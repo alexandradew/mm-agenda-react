@@ -54,7 +54,7 @@ export default function EditMeeting() {
         toast.success('Reunião editada.');
       }
     }catch(err){
-      console.log(err)
+      toast.error('Não foi possível completar sua requisição.');
     }
   }
 

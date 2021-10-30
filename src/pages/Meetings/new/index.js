@@ -25,15 +25,20 @@ export default function NewMeeting() {
    
   const history = useHistory()
   async function submitData(data){
-    await api.post('/meetings', {
-      name: data.name,
-      start_time: data.start_time,
-      finish_time: data.finish_time,
-      date: data.date,
-    })
-    reset();   
-    history.push('/meetings');
-    toast.success('Reunião cadastrada.');
+    try{
+      let response = await api.post('/meetings', {
+        name: data.name,
+        start_time: data.start_time,
+        finish_time: data.finish_time,
+        date: data.date,
+      })
+      if(response.status === 200){
+        history.push('/meetings');   
+        toast.success('Reunião cadastrada.');
+      }
+    }catch(err){
+      toast.error('Não foi possível completar sua requisição.');
+    }
   } 
 
   return (

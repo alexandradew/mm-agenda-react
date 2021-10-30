@@ -74,11 +74,14 @@ function ContactsList() {
   }
 
   async function handleDelete(id){
-    let response = await api.delete('/contacts/' + id)
-    if(response.status === 200){
-      await api.get('/contacts')
-      getContacts();
-      toast.success("Contato deletado.");
+    try{
+      let response = await api.delete('/contacts/' + id)
+      if(response.status === 200){
+        getContacts();
+        toast.success("Contato deletado.");
+      }
+    }catch(err){
+      toast.error('Não foi possível completar sua requisição');
     }
   }
  

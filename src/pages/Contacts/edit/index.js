@@ -56,14 +56,17 @@ export default function EditContact() {
         toast.success("Contato editado.");
       }
     }catch(err){
-      if(err.response.data.error.e.includes('contacts.email')){
-        toast.error('Email já registrado em outro contato');
-      }
-      if(err.response.data.error.e.includes('contacts.cellphone')){
-        toast.error('Telefone já registrado em outro contato');
+      if(err.response !== undefined){
+        if(err.response.data.error.e.includes('contacts.email')){
+          toast.error('Email já registrado em outro contato');
+        }else if(err.response.data.error.e.includes('contacts.cellphone')){
+          toast.error('Telefone já registrado em outro contato');
+        }else{
+          toast.error('Não foi possível completar sua requisição');
+        } 
       }else{
         toast.error('Não foi possível completar sua requisição');
-      } 
+      }
     }
   }
 

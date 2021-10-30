@@ -9,6 +9,8 @@ import { AiTwotoneDelete } from 'react-icons/ai'
 
 import { MeetingContext } from '../../contexts/MeetingContext';
 
+import { toast } from 'react-toastify'
+
 function MeetingsList() {
   const { meetings, getMeetings } = useContext(MeetingContext);
 
@@ -20,12 +22,17 @@ function MeetingsList() {
 
   function handleEdit(meetingId){
     history.push('/meetings/edit/' + meetingId)
-  }
+  }  
 
-  async function handleDelete(id){
-    let response = await api.delete('/meetings/' + id)
-    if(response.status === 200){
-      getMeetings();
+  async function handleDelete(id){    
+    try{
+      let response = await api.delete('/meetings/' + id)
+      if(response.status === 200){
+        getMeetings();
+        toast.success("Reunião deletada.");
+      }
+    }catch(err){
+      toast.error('Não foi possível completar sua requisição');
     }
   }
   
