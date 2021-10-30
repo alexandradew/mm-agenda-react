@@ -11,6 +11,19 @@ export function AuthContextProvider({ children }){
 
   const history = useHistory()
 
+  useEffect(() => {
+    checkLogin();
+  }, [])
+
+  function checkLogin(){
+    const lsToken = localStorage.getItem('MMAgendaToken')
+    if(!lsToken){
+      history.push('/login')
+    }else{
+      history.push('/contacts')
+    }
+  }
+
   async function signIn({ email, password }){
     let response = await api.post('/auth/login/', {
       email,
@@ -36,13 +49,11 @@ export function AuthContextProvider({ children }){
     setUser(null);
     setToken(null);
 
-    history.push('/login')
-
-    
+    history.push('/login')    
   }
 
   return(
-    <AuthContext.Provider value={{ user: user, signIn: signIn, signOut: signOut, token: token, setToken, setUser }}>
+    <AuthContext.Provider value={{ user: user, signIn: signIn, signOut: signOut, token: token, setToken, setUser: setUser }}>
 		 {children}
     </AuthContext.Provider>
   )

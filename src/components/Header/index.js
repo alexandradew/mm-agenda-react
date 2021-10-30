@@ -8,17 +8,18 @@ import { AuthContext } from '../../contexts/AuthContext';
 
 
 function Header() {
-  const { user, signOut } = useContext(AuthContext);
+  const { user, signOut, setUser } = useContext(AuthContext);
 
   useEffect(() => {
-
+    const lsUser = JSON.parse(localStorage.getItem('MMAgendaUser'));
+    setUser(lsUser)
   }, [])
 
   return (
     <header className={styles.header}>
       <div className={styles.container}>
         <h1>MM AGENDA</h1>
-        {true ? 
+        {user ? 
         <div>     
           <span><FaUserCircle/> Olá, {user?.username} </span>        
           <span onClick={signOut}><MdLogout/> Sair </span>
