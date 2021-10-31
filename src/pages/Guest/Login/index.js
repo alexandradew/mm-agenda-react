@@ -10,7 +10,6 @@ function Login() {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
     trigger,
   } = useForm();
 
@@ -28,7 +27,6 @@ function Login() {
       email: data.email,
       password: data.password,
     })
-    //reset();       
   }
 
   return (

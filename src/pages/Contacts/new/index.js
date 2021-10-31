@@ -20,7 +20,6 @@ export default function NewContact() {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
     trigger,
   } = useForm();
 

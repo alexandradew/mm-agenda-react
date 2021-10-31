@@ -6,8 +6,8 @@ import Header from '../../../components/Header'
 import styles from './EditContact.module.scss'
 
 import api from '../../../services/api'
-import InputMask from 'react-input-mask';
-import { useForm, Controller } from 'react-hook-form';
+// import InputMask from 'react-input-mask';
+import { useForm } from 'react-hook-form';
 
 import { IoChevronBackOutline } from 'react-icons/io5'
 

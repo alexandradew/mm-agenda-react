@@ -1,12 +1,10 @@
-import {createContext, useState, useEffect, useContext } from 'react';
+import {createContext, useState, useEffect } from 'react';
 
 import api from '../services/api'
 
-import { AuthContext } from './AuthContext';
 export const ContactContext = createContext([]);
 
 export function ContactContextProvider({ children }){
-  const { user } = useContext(AuthContext);
   const [contacts, setContacts] = useState([])
 
   useEffect(() => {

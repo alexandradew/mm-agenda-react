@@ -21,10 +21,6 @@ import {
   Route
 } from "react-router-dom";
 
-function Home(){
-  return <div>Home</div>
-}
-
 function App() {
   return (
     <Router>
@@ -33,8 +29,6 @@ function App() {
       <ContactContextProvider>
         <MeetingContextProvider>
           <Switch>
-
-
 
             <Route exact path="/contacts" component={Contacts}/>
             <Route exact path="/contacts/new/" component={NewContact}/>

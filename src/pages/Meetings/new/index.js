@@ -2,13 +2,10 @@ import Header from '../../../components/Header'
 import styles from './NewMeeting.module.scss'
 
 import api from '../../../services/api'
-import InputMask from 'react-input-mask';
+// import InputMask from 'react-input-mask';
 import { useForm } from 'react-hook-form';
 
 import { IoChevronBackOutline } from 'react-icons/io5'
-import { AuthContext } from '../../../contexts/AuthContext'
-
-import { useContext } from 'react'
 import { useHistory } from 'react-router-dom'
 
 import { toast } from 'react-toastify';
@@ -18,7 +15,6 @@ export default function NewMeeting() {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
     trigger,
   } = useForm();
 
