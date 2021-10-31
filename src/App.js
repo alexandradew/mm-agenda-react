@@ -30,6 +30,7 @@ function App() {
         <MeetingContextProvider>
           <Switch>
 
+            <Route exact path="/" component={Contacts}/>
             <Route exact path="/contacts" component={Contacts}/>
             <Route exact path="/contacts/new/" component={NewContact}/>
             <Route exact path="/contacts/edit/:id" component={EditContact}/>

@@ -1,8 +1,18 @@
+:root {
+  --main: #e10f27;
+  --main-darker: #c90d23;
+  --box-hover: #ffeeee;
+  --background: #fae9ea;
+  --placeholder: rgb(153, 153, 153);
+  --table-line: #ffb9c2;
+  --input: #ffffff;
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  background-color: #eaebff;
+  background-color: var(--background);
 }
 
 a {

@@ -38,13 +38,13 @@
         cursor: pointer;
 
         &:hover {
-          color: #636bfa;
+          color: var(--main);
         }
       }
     }
 
     h1 {
-      color: #636bfa;
+      color: var(--main);
     }
   }
 }

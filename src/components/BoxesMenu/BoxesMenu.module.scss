@@ -7,15 +7,15 @@
   margin-top: -120px;
 
   svg {
-    color: #636bfa;
+    color: var(--main);
   }
 
   .link {
     cursor: pointer;
 
     &:hover {
-      background-color: #eeefff;
-      border-bottom: 1px solid #636bfa;
+      background-color: var(--box-hover);
+      border-bottom: 1px solid var(--main);
       transition: 0.5s;
     }
   }
@@ -30,7 +30,7 @@
       height: 60px;
       width: 90%;
       color: #fff;
-      background-color: #636bfa;
+      background-color: var(--main);
       border-radius: 5px;
       cursor: pointer;
 
@@ -64,7 +64,7 @@
     gap: 10px;
 
     h2 {
-      color: #636bfa;
+      color: var(--main);
       text-transform: uppercase;
     }
 

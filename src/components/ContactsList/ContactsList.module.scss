@@ -5,7 +5,7 @@
   width: 1120px;
   border-radius: 5px;
   padding: 20px;
-  background-color: #fdfdfd;
+  background-color: #ffffff;
 
   table {
     border-collapse: collapse;
@@ -14,14 +14,14 @@
     border: none;
 
     thead {
-      color: #636bfa;
+      color: var(--main);
 
       tr {
         th {
           cursor: pointer;
 
           &:hover {
-            color: #2630f1;
+            color: var(--main-darker);
           }
 
           span {
@@ -45,9 +45,9 @@
       border-radius: 0px;
 
       &:not(:last-child) {
-        -webkit-box-shadow: 0px 1px 0px 0px #abb0fd;
-        -moz-box-shadow: 0px 1px 0px 0px #abb0fd;
-        box-shadow: 0px 1px 0px 0px #abb0fd;
+        -webkit-box-shadow: 0px 1px 0px 0px var(--table-line);
+        -moz-box-shadow: 0px 1px 0px 0px var(--table-line);
+        box-shadow: 0px 1px 0px 0px var(--table-line);
         padding: 0px 15px;
       }
     }
@@ -62,7 +62,7 @@
       cursor: pointer;
 
       &:hover {
-        color: #636bfa;
+        color: var(--main);
       }
     }
   }

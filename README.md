@@ -1,70 +1,84 @@
-# Getting Started with Create React App
+# MM Agenda
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Aplicação desenvolvida com ReactJS que permite o cadastro de contatos e reuniões.
 
-## Available Scripts
+## Tecnologias e ferramentas utilizadas
 
-In the project directory, you can run:
+- ReactJS como framework e core do projeto
+- SASS para css estruturado
+- React Icons para os ícones
+- Axios para requisições http
+- React Input Mask para máscaras nos inputs de formulário
+- React Hook Form para validações de formulário
 
-### `yarn start`
+## Dependências
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Instale as dependências do projeto
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```bash
+npm install
+```
 
-### `yarn test`
+## Rodando o projeto
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Compile e rode a versão de produção (Certifique-se de que o back end esteja rodando em http://127.0.0.1:3333)
 
-### `yarn build`
+```bash
+npm build
+npm start
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Abra [http://localhost:3000](http://localhost:3000) no seu navegador.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Componentes
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+| Nome         | Responsabilidade                                                                                                                           |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| Header       | Mostrar logo e usuário logado                                                                                                              |
+| BoxesMenu    | Mostrar o menu em caixas com as informações de contatos e reuniões, bem como os link para suas respectivas listas e formulários de criação |
+| ContactsList | Mostrar a lista de contatos em uma tabela permitindo a ordenação por nome, email ou telefone além dos links para edição e exclusão         |
+| MeetingsList | Mostrar a lista de reuniões ordenada de forma ascendente pela data da reunião, e os links para edição e exclusão                           |
 
-### `yarn eject`
+## Estrutura de pastas
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Cada página está separada em uma subpasta no diretório src/pages, e os estilos estão organizados em suas respectivas pastas.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Contact
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+| Pasta               | Rota               | Responsabilidade                         |
+| ------------------- | ------------------ | ---------------------------------------- |
+| pages/contacts      | /contacts          | Mostra a lista de contatos               |
+| pages/contacts/edit | /contacts/edit/:id | Mostra o formulário de edição de contato |
+| pages/contacts/new  | /contacts/new/     | Mostra o formulário de novo contato      |
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Meeting
 
-## Learn More
+| Pasta               | Rota               | Responsabilidade                         |
+| ------------------- | ------------------ | ---------------------------------------- |
+| pages/meetings      | /meetings          | Mostra a lista de reuniões               |
+| pages/meetings/edit | /meetings/edit/:id | Mostra o formulário de edição de reunião |
+| pages/meetings/new  | /meetings/new/     | Mostra o formulário de nova reunião      |
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Login
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+| Pasta       | Rota   | Responsabilidade             |
+| ----------- | ------ | ---------------------------- |
+| pages/login | /login | Mostra o formulário de login |
 
-### Code Splitting
+## Services
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+| Arquivo | Responsabilidade                                  |
+| ------- | ------------------------------------------------- |
+| api     | Setar a url base e enviar o token de autenticação |
 
-### Analyzing the Bundle Size
+## Contextos
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Contextos estão localizados na pasta contexts e separados em seus respectivos arquivos.
 
-### Making a Progressive Web App
+| Arquivo         | Responsabilidade                                                                                     |
+| --------------- | ---------------------------------------------------------------------------------------------------- |
+| AuthContext     | Tratar e persistir a autenticação e prover os dados do usuário e da sessão para todos os componentes |
+| ContactsContext | Guardar e prover os dados dos contatos                                                               |
+| MeetingsContext | Guardar e prover os dados das reuniões                                                               |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Telas do projeto

@@ -39,7 +39,7 @@ export default function EditContact() {
         email: res.data.email,
         cellphone: res.data.cellphone,
       }))
-  }, [reset]) 
+  }, [id, reset]) 
 
 
   async function sendData(data){

@@ -1,4 +1,4 @@
-import { useEffect, useContext } from 'react'
+import { useEffect } from 'react'
 
 import { useHistory, useParams } from 'react-router-dom'
 
@@ -13,7 +13,6 @@ import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify'
 
 import { IoChevronBackOutline } from 'react-icons/io5'
-import { MeetingContext } from '../../../contexts/MeetingContext'  
 
 export default function EditMeeting() {
   const {
@@ -23,8 +22,6 @@ export default function EditMeeting() {
     trigger,
     formState: { errors },
     } = useForm();
-
-  const {  getMeetings } = useContext(MeetingContext);
 
   const history = useHistory()
   const { id } = useParams();
@@ -38,7 +35,7 @@ export default function EditMeeting() {
         finish_time: res.data.finish_time,
         date: res.data.date,
       }))
-  }, [reset]) 
+  }, [id, reset]) 
 
 
   async function submitData(data){

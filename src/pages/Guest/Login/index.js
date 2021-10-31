@@ -13,11 +13,12 @@ function Login() {
     trigger,
   } = useForm();
 
-  const { signIn, user } = useContext(AuthContext);
+  const { signIn } = useContext(AuthContext);
 
   const history = useHistory()
   useEffect(() => {
-    if(user !== null){
+    let token = localStorage.getItem('MMAgendaToken')
+    if(token){
       history.push('/contacts');
     }
   })

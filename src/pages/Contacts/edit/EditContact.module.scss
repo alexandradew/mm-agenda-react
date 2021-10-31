@@ -13,7 +13,7 @@
 
   button {
     align-self: flex-start;
-    background-color: #636bfa;
+    background-color: var(--main);
     padding: 15px;
     width: 40px;
     height: 40px;
@@ -36,7 +36,7 @@
   }
 
   .textDanger {
-    color: #636bfa;
+    color: var(--main);
     font-weight: bold;
     padding: 5px 10px;
   }
@@ -50,19 +50,19 @@
     input {
       margin: 5px;
       border: none;
-      background-color: #eaebff;
+      background-color: var(--background);
       padding: 15px;
       border-radius: 5px;
       font-size: 1rem;
-      color: #636bfa;
+      color: var(--main);
 
       &::placeholder {
-        color: #adb1f6;
+        color: var(--placeholder);
       }
     }
 
     input[type="submit"] {
-      background-color: #636bfa;
+      background-color: var(--main);
       color: #fff;
       font-size: 1.25rem;
       cursor: pointer;
@@ -72,7 +72,7 @@
       }
 
       &:focus {
-        outline: 2px solid #636bfa;
+        outline: 2px solid var(--main);
       }
     }
   }
