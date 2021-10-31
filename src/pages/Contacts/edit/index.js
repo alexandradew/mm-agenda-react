@@ -124,7 +124,6 @@ export default function EditContact() {
           onKeyUp={() => {
             trigger("cellphone");
           }}          
-          defaultValue={'41 995253547'}
           />
 
           {errors.cellphone && (
