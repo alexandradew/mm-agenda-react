@@ -21,7 +21,7 @@ npm install
 
 ## Rodando o projeto
 
-Compile e rode a versão de produção (Certifique-se de que o back end esteja rodando em http://127.0.0.1:3333)
+Compile e rode a versão de produção (Certifique-se de que o back end *https://github.com/alexandradew/mm-agenda-adonis* esteja rodando em http://127.0.0.1:3333)
 
 ```bash
 yarn build

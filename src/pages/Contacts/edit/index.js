@@ -6,7 +6,7 @@ import Header from '../../../components/Header'
 import styles from './EditContact.module.scss'
 
 import api from '../../../services/api'
-// import InputMask from 'react-input-mask';
+ import InputMask from 'react-input-mask';
 import { useForm } from 'react-hook-form';
 
 import { IoChevronBackOutline } from 'react-icons/io5'
@@ -36,8 +36,8 @@ export default function EditContact() {
       reset({
         name: res.data.name,
         lastname: res.data.lastname,
-        email: res.data.email,
         cellphone: res.data.cellphone,
+        email: res.data.email,
       }))
   }, [id, reset]) 
 
@@ -47,8 +47,8 @@ export default function EditContact() {
       let response = await api.patch('/contacts/' + id, {
         name: data.name,
         lastname: data.lastname,
-        email: data.email,
         cellphone: data.cellphone,
+        email: data.email,
       })
       if(response.status === 200){
         getContacts();
@@ -118,12 +118,13 @@ export default function EditContact() {
             <small className={styles.textDanger}>{errors.email.message}</small>
           )}
 
-          <input mask="(99) 99999-9999" 
+          <InputMask mask="(99) 99999-9999" 
           type="text" name="cellphone" placeholder="Telefone" 
           {...register("cellphone", { required: "O telefone é obrigatório" })}
           onKeyUp={() => {
             trigger("cellphone");
-          }}          
+          }}
+          defaultValue={' '}
           />
 
           {errors.cellphone && (
