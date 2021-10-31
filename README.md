@@ -24,11 +24,19 @@ npm install
 Compile e rode a versão de produção (Certifique-se de que o back end esteja rodando em http://127.0.0.1:3333)
 
 ```bash
-npm build
-npm start
+yarn build
+yarn global add serve
+serve -s build
 ```
 
-Abra [http://localhost:3000](http://localhost:3000) no seu navegador.
+Caso o comando serve -s build não funcione, use `npx serve -s build`
+
+Abra [http://localhost:5000](http://localhost:5000) no seu navegador.
+
+Faça o login:
+
+Email: admin@admin.com /
+Password: admin
 
 ## Componentes
 
@@ -81,4 +89,33 @@ Contextos estão localizados na pasta contexts e separados em seus respectivos a
 | ContactsContext | Guardar e prover os dados dos contatos                                                               |
 | MeetingsContext | Guardar e prover os dados das reuniões                                                               |
 
-## Telas do projeto
+# Telas do projeto
+
+## Login
+
+![Tela login](./telas/login.png "Login")
+
+## Listagem de contatos
+
+![Listagem contatos](./telas/contatos.png "Contatos")
+
+## Listagem de reuniões
+
+![Listagem reunioes](./telas/reunioes.png "Reunioes")
+
+## Listagens mobile
+
+![Listagem contatos mobile](./telas/mobile_contatos.png "Contatos mobile")
+![Listagem reunioes mobile](./telas/mobile_reunioes.png "Reuniões mobile")
+
+## Formulários de cadastro e edição de contato
+
+![Novo contato](./telas/novo_contato.png "Novo contato")
+![Editar contato](./telas/editar_contato.png "Editar contato")
+
+## Formulários de cadastro e edição de reuniao
+
+![Nova reuniao](./telas/nova_reuniao.png "Nova reuniao")
+![Editar reuniao](./telas/editar_reuniao.png "Editar reuniao")
+
+### Fim
