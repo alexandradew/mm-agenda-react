@@ -8,9 +8,10 @@ import { AuthContext } from '../../contexts/AuthContext';
 
 
 function Header() {
-  const { user, signOut, setUser } = useContext(AuthContext);
+  const { user, signOut, setUser, checkLogin } = useContext(AuthContext);
 
   useEffect(() => {
+    checkLogin();
     const lsUser = JSON.parse(localStorage.getItem('MMAgendaUser'));
     setUser(lsUser)
   }, [])

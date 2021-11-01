@@ -16,10 +16,18 @@ export function AuthContextProvider({ children }){
     checkLogin();
   }, [])
 
-  function checkLogin(){
+  async function checkLogin(){
     const lsToken = localStorage.getItem('MMAgendaToken')
     if(!lsToken){
       history.push('/login')
+    }else{
+      try{
+        await api.get('/contacts')
+      }catch(err){
+        localStorage.removeItem('MMAgendaToken')
+        localStorage.removeItem('MMAgendaUser')
+        history.push('/login')
+      }
     }
   }
 
@@ -59,7 +67,7 @@ export function AuthContextProvider({ children }){
   }
 
   return(
-    <AuthContext.Provider value={{ user: user, signIn: signIn, signOut: signOut, token: token, setUser: setUser }}>
+    <AuthContext.Provider value={{ user: user, signIn: signIn, signOut: signOut, token: token, setUser: setUser, checkLogin: checkLogin }}>
 		 {children}
     </AuthContext.Provider>
   )
